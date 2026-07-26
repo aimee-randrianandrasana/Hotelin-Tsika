@@ -1,92 +1,92 @@
 # HotelManager
 
-Desktop application for hotel management built with **PyQt5** and **MariaDB**.
+Application desktop de gestion hôtelière développée avec **PyQt5** et **MariaDB**.
 
-## Features
+## Fonctionnalités
 
-- **Client management** — Register, update, delete, and archive hotel guests
-- **Room allocation** — Automatic room assignment with availability checking
-- **Employee management** — Recruit, promote, record absences, and process payments
-- **Salary system** — Automatic salary calculation based on position and grade
-- **History & archiving** — Deleted clients are archived for record-keeping
-- **CSV export** — Export client and history data to CSV files
-- **Search** — Real-time search with SQL queries across clients, history, and employees
+- **Gestion des clients** — Inscription, modification, suppression et archivage des clients de l'hôtel
+- **Attribution de chambres** — Attribution automatique de chambres avec vérification de disponibilité
+- **Gestion des employés** — Recrutement, promotion, enregistrement des absences et traitement des paiements
+- **Système de salaires** — Calcul automatique des salaires selon le poste et le grade
+- **Historique et archivage** — Les clients supprimés sont archivés pour conservation des traces
+- **Export CSV** — Exportation des données clients et de l'historique en fichiers CSV
+- **Recherche** — Recherche en temps réel avec requêtes SQL sur les clients, l'historique et les employés
 
-## Tech Stack
+## Stack technique
 
-| Layer | Technology |
+| Couche | Technologie |
 |-------|-----------|
-| GUI | PyQt5 (Qt5) |
-| Database | MariaDB (via `mariadb` connector) |
-| Data export | pandas |
-| Config | python-dotenv |
+| Interface graphique | PyQt5 (Qt5) |
+| Base de données | MariaDB (via connecteur `mariadb`) |
+| Export de données | pandas |
+| Configuration | python-dotenv |
 | Tests | unittest |
 
-## Setup
+## Installation
 
 ```bash
-# Create virtual environment
+# Créer un environnement virtuel
 python -m venv .venv
 source .venv/bin/activate
 
-# Install dependencies
+# Installer les dépendances
 pip install -r requirements.txt
 
-# Configure database
+# Configurer la base de données
 cp .env.example .env
-# Edit .env with your MariaDB credentials
+# Modifier .env avec vos identifiants MariaDB
 
-# Run
+# Exécuter
 python main.py
 ```
 
-## Running Tests
+## Exécution des tests
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-## Project Structure
+## Structure du projet
 
 ```
 HotelManager/
-├── main.py                  # Application entry point
+├── main.py                  # Point d'entrée de l'application
 ├── db/
-│   ├── config.py            # Database config + salary constants
-│   ├── connection.py        # Shared database connection
-│   ├── database_clients.py  # Client CRUD + search operations
-│   └── database_employees.py # Employee CRUD + search operations
+│   ├── config.py            # Configuration BD + constantes salariales
+│   ├── connection.py        # Connexion partagée à la BD
+│   ├── database_clients.py  # CRUD clients + opérations de recherche
+│   └── database_employees.py # CRUD employés + opérations de recherche
 ├── ui/
-│   ├── main_window.py       # Main window setup & event handling
-│   ├── employee_manager.py  # Employee action handlers
-│   ├── paiement.py          # Payment dialog
-│   ├── recrutement.py       # Recruitment dialog
-│   └── interface.ui         # Qt Designer UI definition
+│   ├── main_window.py       # Configuration de la fenêtre principale et gestion des événements
+│   ├── employee_manager.py  # Gestionnaires d'actions des employés
+│   ├── paiement.py          # Dialogue de paiement
+│   ├── recrutement.py       # Dialogue de recrutement
+│   └── interface.ui         # Définition UI Qt Designer
 ├── modules/
-│   ├── crud.py              # Client add/update/delete logic
-│   ├── display.py           # Table display & selection handlers
-│   └── form.py              # Form data extraction & validation
+│   ├── crud.py              # Logique d'ajout/modification/suppression des clients
+│   ├── display.py           # Affichage des tableaux et gestionnaires de sélection
+│   └── form.py              # Extraction et validation des données de formulaire
 ├── utils/
-│   ├── helpers.py           # Validation helpers
-│   └── employee_utils.py    # Employee utility functions
+│   ├── helpers.py           # Fonctions utilitaires de validation
+│   └── employee_utils.py    # Fonctions utilitaires pour les employés
 ├── tests/
-│   ├── test_config.py       # Config & salary tests
-│   ├── test_helpers.py      # Validation logic tests
-│   └── test_employee_utils.py # Employee utils tests
-├── .env.example             # Environment variable template
-├── .gitignore               # Git ignore rules
-├── requirements.txt         # Python dependencies
+│   ├── test_config.py       # Tests de configuration et salaires
+│   ├── test_helpers.py      # Tests de logique de validation
+│   └── test_employee_utils.py # Tests des utilitaires employés
+├── .env.example             # Modèle de variables d'environnement
+├── .gitignore               # Règles d'ignorance git
+├── requirements.txt         # Dépendances Python
 └── README.md
 ```
 
-## Database Schema
+## Schéma de la base de données
 
-The application automatically creates the following tables:
+L'application crée automatiquement les tables suivantes :
 
-- **`clients`** — Hotel guest reservations (name, CIN, room, dates, price)
-- **`clients_archive`** — Archived (deleted) client records
-- **`employees`** — Staff members (name, position, salary, grade, absences)
+- **`clients`** — Réservations des clients de l'hôtel (nom, CIN, chambre, dates, prix)
+- **`clients_archive`** — Enregistrements clients archivés (supprimés)
+- **`employees`** — Personnel (nom, poste, salaire, grade, absences)
 
-## Author
+## Auteur
 
 Randrianandrasana Jean Aime
