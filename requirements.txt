@@ -1,0 +1,4 @@
+PyQt5>=5.15
+mariadb>=1.1
+pandas>=2.0
+python-dotenv>=1.0
